@@ -14,11 +14,11 @@
 		045B5384211053DF00B05AF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 045B5383211053DF00B05AF2 /* Assets.xcassets */; };
 		045B5387211053E000B05AF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 045B5385211053E000B05AF2 /* LaunchScreen.storyboard */; };
 		045B53912110901200B05AF2 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 045B53902110901200B05AF2 /* Podfile */; };
-		045B53952110927100B05AF2 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045B53942110927100B05AF2 /* Alamofire.framework */; };
 		8D4C3D59ABB9724DFB61FA73 /* Pods_WeatherEf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3DDE2FD2ED4313A99FDCA63 /* Pods_WeatherEf.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		042D48772119BEDA00666644 /* BridginHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridginHeader.h; sourceTree = "<group>"; };
 		043D321C2111E2370076087E /* OpenWeatherMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherMap.swift; sourceTree = "<group>"; };
 		045B5379211053DC00B05AF2 /* WeatherEf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherEf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		045B537C211053DC00B05AF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -40,7 +40,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				045B53952110927100B05AF2 /* Alamofire.framework in Frameworks */,
 				8D4C3D59ABB9724DFB61FA73 /* Pods_WeatherEf.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -72,11 +71,12 @@
 			children = (
 				045B537C211053DC00B05AF2 /* AppDelegate.swift */,
 				045B537E211053DC00B05AF2 /* ViewController.swift */,
+				043D321C2111E2370076087E /* OpenWeatherMap.swift */,
 				045B5380211053DC00B05AF2 /* Main.storyboard */,
 				045B5383211053DF00B05AF2 /* Assets.xcassets */,
 				045B5385211053E000B05AF2 /* LaunchScreen.storyboard */,
 				045B5388211053E000B05AF2 /* Info.plist */,
-				043D321C2111E2370076087E /* OpenWeatherMap.swift */,
+				042D48772119BEDA00666644 /* BridginHeader.h */,
 			);
 			path = WeatherEf;
 			sourceTree = "<group>";
@@ -196,10 +196,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-WeatherEf/Pods-WeatherEf-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
