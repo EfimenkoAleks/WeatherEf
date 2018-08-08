@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		043D2654211B01C2007DE16E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 043D2653211B01C2007DE16E /* CoreLocation.framework */; };
 		043D321D2111E2370076087E /* OpenWeatherMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043D321C2111E2370076087E /* OpenWeatherMap.swift */; };
 		045B537D211053DC00B05AF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B537C211053DC00B05AF2 /* AppDelegate.swift */; };
 		045B537F211053DC00B05AF2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B537E211053DC00B05AF2 /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		042D48772119BEDA00666644 /* BridginHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridginHeader.h; sourceTree = "<group>"; };
+		043D2653211B01C2007DE16E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		043D321C2111E2370076087E /* OpenWeatherMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherMap.swift; sourceTree = "<group>"; };
 		045B5379211053DC00B05AF2 /* WeatherEf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherEf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		045B537C211053DC00B05AF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -40,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				043D2654211B01C2007DE16E /* CoreLocation.framework in Frameworks */,
 				8D4C3D59ABB9724DFB61FA73 /* Pods_WeatherEf.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -84,6 +87,7 @@
 		7E9CFE95695EB3E3AF897405 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				043D2653211B01C2007DE16E /* CoreLocation.framework */,
 				045B53942110927100B05AF2 /* Alamofire.framework */,
 				045B53922110913100B05AF2 /* Alamofire.framework */,
 				D3DDE2FD2ED4313A99FDCA63 /* Pods_WeatherEf.framework */,

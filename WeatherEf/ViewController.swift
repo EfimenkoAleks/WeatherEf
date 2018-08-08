@@ -9,8 +9,9 @@
 import UIKit
 import SwiftyJSON
 import MBProgressHUD
+import CoreLocation
 
-class ViewController: UIViewController, OpenWeatherMapDelegate {
+class ViewController: UIViewController, OpenWeatherMapDelegate, CLLocationManagerDelegate {
     
     @IBOutlet weak var iconImageView: UIImageView!
     
@@ -20,6 +21,7 @@ class ViewController: UIViewController, OpenWeatherMapDelegate {
         
     }
     
+    let locationManager: CLLocationManager = CLLocationManager()
      var openWeather = OpenWeatherMap()
     var hud = MBProgressHUD()
     
@@ -28,6 +30,12 @@ class ViewController: UIViewController, OpenWeatherMapDelegate {
         // Do any additional setup after loading the view, typically from a nib.
  
         self.openWeather.delegate = self
+        locationManager.delegate = self
+        
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        
+        locationManager.startUpdatingLocation()
     }
 
     override func didReceiveMemoryWarning() {
@@ -96,6 +104,30 @@ class ViewController: UIViewController, OpenWeatherMapDelegate {
         self.present(networkController, animated: true, completion: nil)
     }
     
+    //Mark: CLLocationManagerDelegate
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print(manager.location ?? "Error")
+        
+        self.activityIndicator()
+        let currentLocation = locations.last!
+        
+        if (currentLocation.horizontalAccuracy > 0 ) {
+            //stop updating location to save battery life
+            locationManager.stopUpdatingLocation()
+            
+            let coords = CLLocationCoordinate2DMake(currentLocation.coordinate.latitude, currentLocation.coordinate.longitude)
+            self.openWeather.weatherFor(geo: coords)
+            print(coords)
+        }
+        
+        
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+        print("Can't get your location")
+    }
 
 }
 

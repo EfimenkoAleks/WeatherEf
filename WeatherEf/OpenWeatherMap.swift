@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import Alamofire
 import SwiftyJSON
+import CoreLocation
 
 protocol OpenWeatherMapDelegate {
     
@@ -40,6 +41,17 @@ class OpenWeatherMap {
         
         self.setRequest(keyWithUrl)
         
+    }
+    
+    func weatherFor(geo: CLLocationCoordinate2D) {
+        
+        // api.openweathermap.org/data/2.5/weather?lat=35&lon=139
+       
+        let lat = "lat=" + geo.latitude.description
+        let lon = "&lon=" + geo.longitude.description
+        let geoForRequest = weatherUrl + lat + lon + key
+        
+        setRequest(geoForRequest)
     }
     
     func setRequest(_ keyWithUrl: String) {
@@ -119,34 +131,6 @@ class OpenWeatherMap {
         let iconImage = UIImage(named: imageName)
                 return iconImage!
     }
-    
-//    func weatherIcon(stringIcon: String) -> UIImage {
-//        let imageName: String
-//
-//        switch stringIcon {
-//            case "01d": imageName = "01d"
-//            case "02d": imageName = "02d"
-//            case "03d": imageName = "03d"
-//            case "04d": imageName = "04d"
-//            case "09d": imageName = "09d"
-//            case "10d": imageName = "10d"
-//            case "11d": imageName = "11d"
-//            case "13d": imageName = "13d"
-//            case "50d": imageName = "50d"
-//            case "01n": imageName = "01n"
-//            case "02n": imageName = "02n"
-//            case "03n": imageName = "03n"
-//            case "04n": imageName = "04n"
-//            case "09n": imageName = "09n"
-//            case "10n": imageName = "10n"
-//            case "11n": imageName = "11n"
-//            case "13n": imageName = "13n"
-//            case "50n": imageName = "50n"
-//        default: imageName = "none"
-//        }
-//        let iconImage = UIImage(named: imageName)
-//        return iconImage!
-//    }
     
     func convertTemperature(_ country: String, _ temperature: Double) -> Double {
             // Convert to F
