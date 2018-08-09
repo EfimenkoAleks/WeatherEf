@@ -70,7 +70,7 @@ class OpenWeatherMap {
         }
     }
     
-    func timeForUnix(unixTime: Int) -> String {
+    func timeForUnix(_ unixTime: Int) -> String {
         let timeInSecond = TimeInterval(unixTime)
         let weatherDate = NSDate(timeIntervalSince1970: timeInSecond)
         
