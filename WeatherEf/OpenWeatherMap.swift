@@ -22,7 +22,7 @@ class OpenWeatherMap {
     
     //let weatherUrl = "https://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=9235dd62d3f74c7814a8a04526e91cab"
     
-    let weatherUrl = "https://api.openweathermap.org/data/2.5/weather?"
+    let weatherUrl = "https://api.openweathermap.org/data/2.5/forecast?"
     let key = "&APPID=9235dd62d3f74c7814a8a04526e91cab"
     
  //   var nameCity: String?
@@ -80,7 +80,7 @@ class OpenWeatherMap {
         return dateFormater.string(from: weatherDate as Date)
     }
     
-    func updateWeatherIcon(_ condition: Int, _ nightTime: Bool) -> UIImage {
+    func updateWeatherIcon(_ condition: Int, _ nightTime: Bool, _ index: Int) -> UIImage {
         var imageName: String
         switch (condition, nightTime) {
             //Thunderstorm
@@ -142,17 +142,21 @@ class OpenWeatherMap {
         }
     }
     
-    func isTimeNight(_ wheatherJson: JSON) -> Bool {
-        
-        var nightTime = false
-        let nowTime = NSDate().timeIntervalSince1970
-        let sunrise = wheatherJson["sys"]["sunrise"].doubleValue
-        let sunset = wheatherJson["sys"]["sunset"].doubleValue
-        
-        if (nowTime < sunrise || nowTime > sunset) {
-            nightTime = true
-        }
-        return nightTime
+//    func isTimeNight(_ wheatherJson: JSON) -> Bool {
+//
+//        var nightTime = false
+//        let nowTime = NSDate().timeIntervalSince1970
+//        let sunrise = wheatherJson["sys"]["sunrise"].doubleValue
+//        let sunset = wheatherJson["sys"]["sunset"].doubleValue
+//
+//        if (nowTime < sunrise || nowTime > sunset) {
+//            nightTime = true
+//        }
+//        return nightTime
+//    }
+    
+    func isTimeNight(_ icon: String) -> Bool {
+        return icon.range(of: "n") != nil
     }
     
 }

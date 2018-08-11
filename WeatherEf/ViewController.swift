@@ -86,38 +86,77 @@ class ViewController: UIViewController, OpenWeatherMapDelegate, CLLocationManage
     func updateWeatherInfo(_ weatherJson: JSON) {
         
         hud.hide(animated: true)
+        print(weatherJson)
         
-        if let tempResult = weatherJson["main"]["temp"].double {
+        if let tempResult = weatherJson["list"][0]["main"]["temp"].double {
             // get country
-            let country = weatherJson["sys"]["country"].stringValue
+            let country = weatherJson["city"]["country"].stringValue
             // get city name
-            let cityName = weatherJson["name"].stringValue
+            let cityName = weatherJson["city"]["name"].stringValue
             self.cityNameLabel.text = "\(cityName), \(country)"
             //Get time
-            let time = weatherJson["dt"].intValue
-            let timeToString = openWeather.timeForUnix(time)
+            let now = Int(NSDate().timeIntervalSince1970)
+           // let time = weatherJson["list"][0]["dt"].intValue
+            let timeToString = openWeather.timeForUnix(now)
             self.timeLabel.text = "At \(timeToString) it is"
             print(timeToString)
             // get convert temperature
             let temperature = openWeather.convertTemperature(country, tempResult)
-            self.tempLabel.text = "\(temperature)"
+            self.tempLabel.text = "\(temperature)º"
             print(temperature)
             // get icon
-            let weather = weatherJson["weather"][0]
+            let weather = weatherJson["list"][0]["weather"][0]
             let condition = weather["id"].intValue
-            let nightTime = openWeather.isTimeNight(weatherJson)
-            let icon = openWeather.updateWeatherIcon(condition, nightTime)
+            let iconStr = weather["icon"].stringValue
+            let nightTime = openWeather.isTimeNight(iconStr)
+            let icon = openWeather.updateWeatherIcon(condition, nightTime, 0)
             self.iconImageView.image = icon
             //Get description
             let desc = weather["description"].stringValue
             self.descriptionLabel.text = "\(desc)"
             //Get speed wind
-            let speed = weatherJson["wind"]["speed"].doubleValue
+            let speed = weatherJson["list"][0]["wind"]["speed"].doubleValue
             self.speedWindLabel.text = "\(speed)"
             //Get humidity
-            let humidity = weatherJson["main"]["humidity"].intValue
+            let humidity = weatherJson["list"][0]["main"]["humidity"].intValue
             self.humidityLabel.text = "\(humidity)"
-            
+            for index in 1...4 {
+                
+                if let tempResult = weatherJson["list"][index]["main"]["temp"].double
+                {
+                    //Get convert temperatute
+                    let temperature = openWeather.convertTemperature(country, tempResult)
+                    
+                    if (index == 1) {
+                        print(temperature)
+                    } else if (index == 2) {
+                        print(temperature)
+                    } else if (index == 3) {
+                        print(temperature)
+                    } else if (index == 4) {
+                        print(temperature)
+                    }
+                    //Get forecast time
+                    let forecastTime = weatherJson["list"][index]["dt"].intValue
+                    let timeToStr = openWeather.timeForUnix(forecastTime)
+                    
+                    if (index == 1) {
+                        print(timeToStr)
+                    } else if (index == 2) {
+                        print(timeToStr)
+                    } else if (index == 3) {
+                        print(timeToStr)
+                    } else if (index == 4) {
+                        print(timeToStr)
+                    }
+                    // get icon
+                    let weather = weatherJson["list"][index]["weather"][0]
+                    let iconStr = weather["icon"].stringValue
+                    let nightTime = openWeather.isTimeNight(iconStr)
+                    let icon = openWeather.updateWeatherIcon(condition, nightTime, index)
+                }
+                
+            }
         } else {
             print("Unable load weather info")
         }
