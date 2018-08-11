@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		041C1919211F407500CAFB77 /* ForecastController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C1918211F407500CAFB77 /* ForecastController.swift */; };
 		043D2654211B01C2007DE16E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 043D2653211B01C2007DE16E /* CoreLocation.framework */; };
 		043D321D2111E2370076087E /* OpenWeatherMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043D321C2111E2370076087E /* OpenWeatherMap.swift */; };
 		043DB24E211C8EE400C52B35 /* background1.png in Resources */ = {isa = PBXBuildFile; fileRef = 043DB24D211C8EE400C52B35 /* background1.png */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		041C1918211F407500CAFB77 /* ForecastController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastController.swift; sourceTree = "<group>"; };
 		042D48772119BEDA00666644 /* BridginHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridginHeader.h; sourceTree = "<group>"; };
 		043D2653211B01C2007DE16E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		043D321C2111E2370076087E /* OpenWeatherMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherMap.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				043DB24A211C8B2E00C52B35 /* image */,
 				045B537C211053DC00B05AF2 /* AppDelegate.swift */,
 				045B537E211053DC00B05AF2 /* ViewController.swift */,
+				041C1918211F407500CAFB77 /* ForecastController.swift */,
 				043D321C2111E2370076087E /* OpenWeatherMap.swift */,
 				045B5380211053DC00B05AF2 /* Main.storyboard */,
 				045B5383211053DF00B05AF2 /* Assets.xcassets */,
@@ -235,6 +238,7 @@
 			files = (
 				043D321D2111E2370076087E /* OpenWeatherMap.swift in Sources */,
 				045B537F211053DC00B05AF2 /* ViewController.swift in Sources */,
+				041C1919211F407500CAFB77 /* ForecastController.swift in Sources */,
 				045B537D211053DC00B05AF2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

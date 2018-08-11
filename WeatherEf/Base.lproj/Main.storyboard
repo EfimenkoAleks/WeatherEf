@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3gM-k3-al3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mWT-3L-76A">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,7 +13,7 @@
         <!--Forecast Weather-->
         <scene sceneID="XFE-DX-mKN">
             <objects>
-                <viewController id="2pD-aU-fWj" sceneMemberID="viewController">
+                <viewController id="2pD-aU-fWj" customClass="ForecastController" customModule="WeatherEf" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LXl-9a-4Qr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -102,12 +102,26 @@
                         <viewLayoutGuide key="safeArea" id="yX1-On-4ok"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Forecast Weather" id="BZH-5t-AvO"/>
+                    <connections>
+                        <outlet property="icon1View" destination="rdD-I8-ZRQ" id="NQh-84-kH6"/>
+                        <outlet property="icon2View" destination="Y6V-RU-OlA" id="Ax8-nE-Kg5"/>
+                        <outlet property="icon3View" destination="xWf-gO-d3c" id="KBi-eC-iaS"/>
+                        <outlet property="icon4View" destination="bmP-qL-fsA" id="CkY-sH-bpZ"/>
+                        <outlet property="temp1Label" destination="3le-nt-YZX" id="hD5-Pa-fbX"/>
+                        <outlet property="temp2Label" destination="D7L-v7-fmb" id="Q2M-Ke-qyt"/>
+                        <outlet property="temp3Label" destination="j29-Xt-zPD" id="nA8-T9-v5C"/>
+                        <outlet property="temp4Label" destination="tJu-e5-BWY" id="5vC-dg-xIc"/>
+                        <outlet property="time1Label" destination="Edu-AE-6BX" id="zQD-Cl-bsh"/>
+                        <outlet property="time2Label" destination="IAM-rH-pyO" id="9sQ-W2-XlF"/>
+                        <outlet property="time3Label" destination="Avm-Ro-S9V" id="OwL-aB-hj1"/>
+                        <outlet property="time4Label" destination="2MQ-Fq-sOk" id="11e-cM-Yd8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="exD-Dg-foV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="193" y="278"/>
+            <point key="canvasLocation" x="1376.8115942028987" y="-263.31521739130437"/>
         </scene>
-        <!--Curent Weather-->
+        <!--View Controller-->
         <scene sceneID="gGH-E8-M9m">
             <objects>
                 <viewController id="WW1-Ew-n5V" customClass="ViewController" customModule="WeatherEf" customModuleProvider="target" sceneMemberID="viewController">
@@ -116,32 +130,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNj-na-RIJ">
-                                <rect key="frame" x="120.33333333333331" y="285.33333333333331" width="174" height="136.66666666666669"/>
+                                <rect key="frame" x="120.33333333333331" y="331.66666666666669" width="174" height="136.66666666666669"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="100"/>
                                 <color key="textColor" red="0.66462239759999997" green="0.94617658849999997" blue="0.8554088849" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="At 13:00 it is" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RDc-uq-bQc">
-                                <rect key="frame" x="123" y="207" width="168" height="27"/>
+                                <rect key="frame" x="123" y="251.00000000000003" width="168" height="29.333333333333343"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
                                 <color key="textColor" red="0.66462239759999997" green="0.94617658849999997" blue="0.8554088849" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="huv-ym-UZh">
-                                <rect key="frame" x="74" y="71" width="50" height="50"/>
+                                <rect key="frame" x="74" y="115" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="CmT-Sy-ZHi"/>
                                     <constraint firstAttribute="width" constant="50" id="b3J-eb-lYR"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kiev , ua" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaK-Lm-iKc">
-                                <rect key="frame" x="132" y="79" width="262" height="34.333333333333343"/>
+                                <rect key="frame" x="132" y="122.99999999999999" width="262" height="34.333333333333329"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="25"/>
                                 <color key="textColor" red="0.66462239759999997" green="0.94617658849999997" blue="0.8554088849" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="uXY-Zx-uCF">
-                                <rect key="frame" x="20" y="430" width="155.33333333333334" height="62.666666666666686"/>
+                                <rect key="frame" x="20" y="476.33333333333331" width="155.33333333333334" height="62.666666666666686"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wind speed, m/s" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJl-JM-C7l">
                                         <rect key="frame" x="0.0" y="0.0" width="155.33333333333334" height="27.333333333333332"/>
@@ -150,7 +164,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6.41" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pDu-mf-q5H">
-                                        <rect key="frame" x="0.0" y="35.333333333333314" width="155.33333333333334" height="27.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="35.333333333333371" width="155.33333333333334" height="27.333333333333329"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
                                         <color key="textColor" red="0.66462239759999997" green="0.94617658849999997" blue="0.8554088849" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -165,13 +179,13 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="viO-os-hal">
-                                <rect key="frame" x="20" y="557" width="374" height="27.333333333333371"/>
+                                <rect key="frame" x="20" y="603.33333333333337" width="374" height="27.333333333333371"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
                                 <color key="textColor" red="0.66462239759999997" green="0.94617658849999997" blue="0.8554088849" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Aqb-8q-Xer">
-                                <rect key="frame" x="283.33333333333331" y="430" width="110" height="62.666666666666686"/>
+                                <rect key="frame" x="283.33333333333331" y="476.33333333333331" width="110" height="62.666666666666686"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Humidity, %" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X6u-1c-o01">
                                         <rect key="frame" x="0.0" y="0.0" width="110" height="27.333333333333332"/>
@@ -180,7 +194,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="90" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MmQ-t2-Ymq">
-                                        <rect key="frame" x="0.0" y="35.333333333333314" width="110" height="27.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="35.333333333333371" width="110" height="27.333333333333329"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
                                         <color key="textColor" red="0.66462239759999997" green="0.94617658849999997" blue="0.8554088849" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -218,7 +232,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pMO-LK-oGe"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Curent Weather" id="6Pz-TG-q2w"/>
+                    <navigationItem key="navigationItem" id="KeQ-AS-5pY">
+                        <barButtonItem key="rightBarButtonItem" title="More" id="yAK-6O-fCZ">
+                            <connections>
+                                <segue destination="2pD-aU-fWj" kind="show" identifier="moreInfo" id="hFr-C4-oCd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="cityNameLabel" destination="xaK-Lm-iKc" id="4rN-kG-Emb"/>
                         <outlet property="descriptionLabel" destination="viO-os-hal" id="G1e-cy-X6C"/>
@@ -231,25 +251,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fby-D9-Y4y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="192.75362318840581" y="-386.41304347826087"/>
+            <point key="canvasLocation" x="563.768115942029" y="-263.31521739130437"/>
         </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="cSt-Ph-GUD">
+        <!--Curent Weather-->
+        <scene sceneID="Ecr-Yd-jkE">
             <objects>
-                <tabBarController id="3gM-k3-al3" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zGr-UG-zgb">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mWT-3L-76A" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Curent Weather" id="6Pz-TG-q2w"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GwS-d7-vUv">
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="WW1-Ew-n5V" kind="relationship" relationship="viewControllers" id="RiT-Nb-rcf"/>
-                        <segue destination="2pD-aU-fWj" kind="relationship" relationship="viewControllers" id="KbN-8u-eht"/>
+                        <segue destination="WW1-Ew-n5V" kind="relationship" relationship="rootViewController" id="16X-27-417"/>
                     </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ISh-VO-CKp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v8M-wk-KKG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-759" y="-55"/>
+            <point key="canvasLocation" x="-259" y="-263"/>
         </scene>
     </scenes>
 </document>
