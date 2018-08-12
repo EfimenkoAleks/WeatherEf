@@ -31,17 +31,11 @@ class ViewController: UIViewController, OpenWeatherMapDelegate, CLLocationManage
     var temp3Text: String!
     var temp4Text: String!
     
-    var icon1: UIImageView!
-    var icon2: UIImageView!
-    var icon3: UIImageView!
-    var icon4: UIImageView!
+    var icon1: UIImage!
+    var icon2: UIImage!
+    var icon3: UIImage!
+    var icon4: UIImage!
     
-    
-    @IBAction func cityTappedButton(_ sender: UIBarButtonItem) {
-        
-        self.displayCity()
-        
-    }
     
     let locationManager: CLLocationManager = CLLocationManager()
      var openWeather = OpenWeatherMap()
@@ -50,6 +44,9 @@ class ViewController: UIViewController, OpenWeatherMapDelegate, CLLocationManage
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        // Go out back button
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
         
         // Set background
         let bg = UIImage(named: "background1")
@@ -71,6 +68,9 @@ class ViewController: UIViewController, OpenWeatherMapDelegate, CLLocationManage
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func addCity(_ sender: UIBarButtonItem) {
+        self.displayCity()
+    }
     
     func displayCity() {
         
@@ -90,6 +90,7 @@ class ViewController: UIViewController, OpenWeatherMapDelegate, CLLocationManage
         }
         
         self.present(alert, animated: true, completion: nil)
+        
     }
     
     func activityIndicator() {
@@ -192,16 +193,16 @@ class ViewController: UIViewController, OpenWeatherMapDelegate, CLLocationManage
             self.iconImageView.image = UIImage(named: name)
         }
         if (index == 1) {
-            self.icon1.image = UIImage(named: name)
+            self.icon1 = UIImage(named: name)
         }
         if (index == 2) {
-            self.icon2.image = UIImage(named: name)
+            self.icon2 = UIImage(named: name)
         }
         if (index == 3) {
-            self.icon3.image = UIImage(named: name)
+            self.icon3 = UIImage(named: name)
         }
         if (index == 4) {
-            self.icon4.image = UIImage(named: name)
+            self.icon4 = UIImage(named: name)
         }
     }
     
@@ -211,6 +212,8 @@ class ViewController: UIViewController, OpenWeatherMapDelegate, CLLocationManage
         let okButton = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
         networkController.addAction(okButton)
         self.present(networkController, animated: true, completion: nil)
+        
+        hud.hide(animated: true)
     }
     
     //Mark: CLLocationManagerDelegate
@@ -249,10 +252,10 @@ class ViewController: UIViewController, OpenWeatherMapDelegate, CLLocationManage
             forecastController.time3 = self.time3Text
             forecastController.time4 = self.time4Text
             
-            forecastController.icon1Image.image = self.icon1.image
-            forecastController.icon2Image.image = self.icon2.image
-            forecastController.icon3Image.image = self.icon3.image
-            forecastController.icon4Image.image = self.icon4.image
+            forecastController.icon1Image = self.icon1
+            forecastController.icon2Image = self.icon2
+            forecastController.icon3Image = self.icon3
+            forecastController.icon4Image = self.icon4
             
             forecastController.temp1 = self.temp1Text
             forecastController.temp2 = self.temp2Text

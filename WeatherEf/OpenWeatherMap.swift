@@ -25,12 +25,6 @@ class OpenWeatherMap {
     let weatherUrl = "https://api.openweathermap.org/data/2.5/forecast?"
     let key = "&APPID=9235dd62d3f74c7814a8a04526e91cab"
     
- //   var nameCity: String?
-//    var temp: Double?
-//    var description: String
-//    var currentTime: String?
-//    var icon: UIImage?
-    
     var delegate: OpenWeatherMapDelegate!
     
     func weatherFor(city: String) {
@@ -139,19 +133,6 @@ class OpenWeatherMap {
             return round(temperature - 273.15)
         }
     }
-    
-//    func isTimeNight(_ wheatherJson: JSON) -> Bool {
-//
-//        var nightTime = false
-//        let nowTime = NSDate().timeIntervalSince1970
-//        let sunrise = wheatherJson["sys"]["sunrise"].doubleValue
-//        let sunset = wheatherJson["sys"]["sunset"].doubleValue
-//
-//        if (nowTime < sunrise || nowTime > sunset) {
-//            nightTime = true
-//        }
-//        return nightTime
-//    }
     
     func isTimeNight(_ icon: String) -> Bool {
         return icon.range(of: "n") != nil

@@ -25,6 +25,8 @@ class ForecastController: UIViewController {
     @IBOutlet weak var icon3View: UIImageView!
     @IBOutlet weak var icon4View: UIImageView!
     
+    @IBOutlet weak var viewForecast: UIView!
+    
     var time1: String!
     var time2: String!
     var time3: String!
@@ -35,25 +37,33 @@ class ForecastController: UIViewController {
     var temp3: String!
     var temp4: String!
     
-    var icon1Image: UIImageView!
-    var icon2Image: UIImageView!
-    var icon3Image: UIImageView!
-    var icon4Image: UIImageView!
+    var icon1Image: UIImage!
+    var icon2Image: UIImage!
+    var icon3Image: UIImage!
+    var icon4Image: UIImage!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
+        self.viewForecast.layer.cornerRadius = self.viewForecast.frame.size.width / 8
+        self.viewForecast.clipsToBounds = true
+        
+        //Set animation view
+//        let scale = CGAffineTransform(scaleX: 0.0, y: 0.0)
+//        let translate = CGAffineTransform(translationX: 0.0, y: 500.0)
+//        viewForecast.transform = CGAffineTransform.
+        
          self.time1Label.text = self.time1
          self.time2Label.text = self.time2
          self.time3Label.text = self.time3
          self.time4Label.text = self.time4
         
-        self.icon1View.image = self.icon1Image.image
-        self.icon2View.image = self.icon2Image.image
-        self.icon3View.image = self.icon3Image.image
-        self.icon4View.image = self.icon4Image.image
+        self.icon1View.image = self.icon1Image
+        self.icon2View.image = self.icon2Image
+        self.icon3View.image = self.icon3Image
+        self.icon4View.image = self.icon4Image
         
         self.temp1Label.text = self.temp1
         self.temp2Label.text = self.temp2
