@@ -51,9 +51,16 @@ class ForecastController: UIViewController {
         self.viewForecast.clipsToBounds = true
         
         //Set animation view
-//        let scale = CGAffineTransform(scaleX: 0.0, y: 0.0)
-//        let translate = CGAffineTransform(translationX: 0.0, y: 500.0)
-//        viewForecast.transform = CGAffineTransform.
+        let scale = CGAffineTransform(scaleX: 0.0, y: 0.0)
+        let translate = CGAffineTransform.init(translationX: 0.0, y: 500.0)
+        self.viewForecast.transform = scale.concatenating(translate)
+        
+        UIView.animate(withDuration: 1.5, delay: 0.0, options: [], animations: {
+            let scale = CGAffineTransform(scaleX: 1.0, y: 1.0)
+            let translate = CGAffineTransform.init(translationX: 0.0, y: 0.0)
+            self.viewForecast.transform = scale.concatenating(translate)
+        }, completion: nil)
+       
         
          self.time1Label.text = self.time1
          self.time2Label.text = self.time2
